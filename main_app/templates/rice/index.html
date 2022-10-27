@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Rice List</h1>
+
+{% for rice in rice %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ rice.name }}</span>
+      <p>Length: {{ rice.length }}</p>
+      <p>Usage: {{ rice.usage }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
