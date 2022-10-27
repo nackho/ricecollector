@@ -9,7 +9,7 @@ class Rice(models.Model):
     usage = models.TextField(max_length=250)
 
 class Picked(models.Model):
-    date = models.DateField()
+    date = models.DateField('Obtained grain')
 
     cat = models.ForeignKey(Rice, on_delete=models.CASCADE)
 
