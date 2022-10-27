@@ -9,6 +9,9 @@
     <p>Length: {{ rice.length }}</p>
     <p>Usage: {{ rice.usage|linebreaks }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'rice_update' rice.id %}">Edit</a>
+    <a href="{% url 'rice_delete' rice.id %}">Delete</a>
 </div>
 
 {% endblock %}
