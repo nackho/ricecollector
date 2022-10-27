@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Rice
 
 from django.http import HttpResponse
 # Create your views here.
@@ -12,14 +13,10 @@ def about(request):
 def rice_index(request):
     return render(request, 'rice/index.html', { 'rice': rice })
 
-class Rice:  # Note that parens are optional if not inheriting from another class
-  def __init__(self, name, length, usage):
-    self.name = name
-    self.length = length
-    self.usage = usage
+def rice_index(request):
+  rice = Rice.objects.all()
+  return render(request, 'rice/index.html', { 'rice': rice })
 
-rice = [
-  Rice('Arborio Rice', 'medium', 'Risotto, rice pudding, soup'),
-  Rice('Basmati Rice', 'long', 'pilaf, saffron rice'),
-  Rice('Jasmine Rice', 'long', 'stir fry, Asian dishes')
-]   
+def rice_detail(request, rice_id):
+    rice = Rice.objects.get(id=rice_id)
+    return render(request, 'rice/detail.html', { 'rice': rice})

@@ -5,5 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('rice/', views.rice_index, name='index')
+    path('rice/', views.rice_index, name='index'),
+    path('rice/<int:rice_id>/', views.rice_detail, name='detail'),
 ]
