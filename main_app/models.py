@@ -1,6 +1,7 @@
 from pyexpat import model
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 MEALS = (
     ('B', 'Breakfast'),
@@ -25,6 +26,7 @@ class Rice(models.Model):
     length = models.CharField(max_length=100)
     usage = models.TextField(max_length=250)
     dishes = models.ManyToManyField(Dish)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
